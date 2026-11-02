@@ -3,6 +3,7 @@ import type { Zeneszam_type } from "./Models/Types/Zeneszam.type";
 import type { Oldal_type } from "./Models/Types/Oldal.type";
 import { Fejlec } from "./Components/Fejlec/Fejlec";
 import { Lablec } from "./Components/Lablec/Lablec";
+import { Lista } from "./Components/Lista/Lista";
 
 export const App = function () {
   const [zeneszamok, setZeneszamok] = useState<Zeneszam_type[]>([
@@ -45,7 +46,7 @@ export const App = function () {
   return (
     <>
     <Fejlec changeOldal={changeOldal}></Fejlec>
-    
+    <Lista zeneszamok={zeneszamok}></Lista>
     <Lablec></Lablec>
     </>
   )
