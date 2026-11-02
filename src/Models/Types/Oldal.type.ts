@@ -1,3 +1,1 @@
-export type Oldal_type = {
-    nev:string;
-};
+export type Oldal_type = "index" | "admin" | "moderator";

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { Zeneszam_type } from "./Models/Types/Zeneszam.type";
+import type { Oldal_type } from "./Models/Types/Oldal.type";
 
 export const App = function () {
   const [zeneszamok, setZeneszamok] = useState<Zeneszam_type[]>([
@@ -33,7 +34,8 @@ export const App = function () {
       eladasok_szama: "30 millió",
       magyar: false,
     },
-  ])
+  ]);
+  const [oldal, setOldal] = useState<Oldal_type>("index");
   return (
     <>
     
