@@ -2,6 +2,7 @@ import { useState } from "react";
 import type { Zeneszam_type } from "./Models/Types/Zeneszam.type";
 import type { Oldal_type } from "./Models/Types/Oldal.type";
 import { Fejlec } from "./Components/Fejlec/Fejlec";
+import { Lablec } from "./Components/Lablec/Lablec";
 
 export const App = function () {
   const [zeneszamok, setZeneszamok] = useState<Zeneszam_type[]>([
@@ -44,6 +45,8 @@ export const App = function () {
   return (
     <>
     <Fejlec changeOldal={changeOldal}></Fejlec>
+    
+    <Lablec></Lablec>
     </>
   )
 };
