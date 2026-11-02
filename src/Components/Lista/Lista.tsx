@@ -11,6 +11,12 @@ export const Lista = function (props: Lista_prop) {
                         <th>Eloado</th>
                         <th>Eladasok</th>
                         <th>Magyar</th>
+                        {(props.oldal == "moderator" || props.oldal == "admin")&& (
+                            <th>
+                                Esemenyek
+                            </th>
+                        )}
+
                     </tr>
                 </thead>
             </table>
@@ -21,8 +27,13 @@ export const Lista = function (props: Lista_prop) {
                         <td>{zeneszam.eloado}</td>
                         <td>{zeneszam.eladasok_szama.toString()}</td>
                         <td>{zeneszam.magyar ? "Igen" : "Nem"}</td>
+                        {props.oldal == "moderator" && (
+                            <td>
+                                <button>Magyar módosítás</button>
+                            </td>
+                        )}
                     </tr>
-                ))};
+                ))}
             </tbody>
         </>
     )

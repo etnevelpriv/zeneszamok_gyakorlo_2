@@ -12,8 +12,12 @@ export const Fejlec = function (props: Fejlec_prop) {
                         <ul>
                             <li>
                                 <a href="#" onClick={() => { props.changeOldal("index") }}>Index</a>
-                                <a href="#" onClick={() => { props.changeOldal("admin") }}>Index</a>
-                                <a href="#" onClick={() => { props.changeOldal("moderator") }}>Index</a>
+                            </li>
+                            <li>
+                                <a href="#" onClick={() => { props.changeOldal("admin") }}>Admin</a>
+                            </li>
+                            <li>
+                                <a href="#" onClick={() => { props.changeOldal("moderator") }}>Moderator</a>
                             </li>
                         </ul>
                     </div>

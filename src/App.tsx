@@ -43,10 +43,16 @@ export const App = function () {
   const changeOldal = function(oldal:Oldal_type) {
     setOldal(oldal);
   };
+
+  const deleteZeneszam = function(zeneszamToDelete:Zeneszam_type) {
+    setZeneszamok(
+      zeneszamok.filter((zeneszam:Zeneszam_type)=> zeneszam.nev != zeneszamToDelete.nev)
+    );
+  };
   return (
     <>
     <Fejlec changeOldal={changeOldal}></Fejlec>
-    <Lista zeneszamok={zeneszamok}></Lista>
+    <Lista zeneszamok={zeneszamok} oldal={oldal}></Lista>
     <Lablec></Lablec>
     </>
   )
