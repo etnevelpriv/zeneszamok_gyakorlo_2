@@ -49,6 +49,27 @@ export const App = function () {
       zeneszamok.filter((zeneszam:Zeneszam_type)=> zeneszam.nev != zeneszamToDelete.nev)
     );
   };
+
+  const changeZeneszamMagyar = function (zeneszamToModify:Zeneszam_type, boolValue:boolean) {
+    setZeneszamok((elozoZeneszamok) => {
+      return (elozoZeneszamok.map((zeneszam:Zeneszam_type)=>{
+        return zeneszam.nev == zeneszamToModify.nev ? {...zeneszam, magyar : boolValue} : zeneszam
+      }))
+    })
+  };
+
+    const modifyZeneszam = function (zeneszamToModify:Zeneszam_type, data:Zeneszam_type) {
+    setZeneszamok((elozoZeneszamok) => {
+      return (elozoZeneszamok.map((zeneszam:Zeneszam_type)=>{
+        return zeneszam.nev == zeneszamToModify.nev ? data: zeneszam
+      }))
+    })
+  };
+
+  const setNewZeneszam = function (newZeneszam: Zeneszam_type) {
+    setZeneszamok(((elozoZeneszamok)=>[...elozoZeneszamok, newZeneszam]));
+  };
+
   return (
     <>
     <Fejlec changeOldal={changeOldal}></Fejlec>
