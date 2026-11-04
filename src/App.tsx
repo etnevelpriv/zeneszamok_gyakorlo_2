@@ -4,37 +4,38 @@ import type { Oldal_type } from "./Models/Types/Oldal.type";
 import { Fejlec } from "./Components/Fejlec/Fejlec";
 import { Lablec } from "./Components/Lablec/Lablec";
 import { Lista } from "./Components/Lista/Lista";
+import { UjForm } from "./Components/UjForm/UjForm";
 
 export const App = function () {
   const [zeneszamok, setZeneszamok] = useState<Zeneszam_type[]>([
     {
       nev: "Shape of You",
       eloado: "Ed Sheeran",
-      eladasok_szama: "41 millió",
+      eladasok_szama: 41000000,
       magyar: false,
     },
     {
       nev: "Despacito",
       eloado: "Luis Fonsi",
-      eladasok_szama: "36 millió",
+      eladasok_szama: 41000000,
       magyar: false,
     },
     {
       nev: "Az éjjel soha nem érhet véget",
       eloado: "Punnany Massif",
-      eladasok_szama: "2 millió",
+      eladasok_szama: 2000000,
       magyar: true,
     },
     {
       nev: "Tavaszi szél vizet áraszt",
       eloado: "Omega",
-      eladasok_szama: "1,5 millió",
+      eladasok_szama: 1500000,
       magyar: true,
     },
     {
       nev: "Blinding Lights",
       eloado: "The Weeknd",
-      eladasok_szama: "30 millió",
+      eladasok_szama: 30000000,
       magyar: false,
     },
   ]);
@@ -73,7 +74,10 @@ export const App = function () {
   return (
     <>
     <Fejlec changeOldal={changeOldal}></Fejlec>
-    <Lista zeneszamok={zeneszamok} oldal={oldal} changeZeneszamMagyar={changeZeneszamMagyar}></Lista>
+    {oldal == "admin" && (
+      <UjForm setNewZeneszam={setNewZeneszam}/>
+    )}
+    <Lista deleteZeneszam={deleteZeneszam} modifyZeneszam={modifyZeneszam} zeneszamok={zeneszamok} oldal={oldal} changeZeneszamMagyar={changeZeneszamMagyar}></Lista>
     <Lablec></Lablec>
     </>
   )

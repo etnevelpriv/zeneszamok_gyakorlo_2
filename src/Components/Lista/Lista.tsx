@@ -1,7 +1,14 @@
 import type { Lista_prop } from "../../Models/Props/Lista.props";
 import type { Zeneszam_type } from "../../Models/Types/Zeneszam.type";
+import { Modal } from "../Modal/Modal";
+import { useState } from "react";
 
 export const Lista = function (props: Lista_prop) {
+    const [kivalasztottZeneszam, setKivalasztottZeneszam] = useState<Zeneszam_type | null>(null);
+
+    const onClose = function () {
+        setKivalasztottZeneszam(null)
+    };
     return (
         <>
             <table>
@@ -33,15 +40,17 @@ export const Lista = function (props: Lista_prop) {
                             )}
                             {props.oldal == "admin" && (
                                 <td>
-                                    <button onClick={() => { props.changeZeneszamMagyar(zeneszam, zeneszam.magyar ? false : true) }}>Rekord modositasa</button>
-                                    <button onClick={() => { props.changeZeneszamMagyar(zeneszam, zeneszam.magyar ? false : true) }}>Rekord torlese</button>
+                                    <button onClick={() => { setKivalasztottZeneszam(zeneszam) }}>Rekord modositasa</button>
+                                    <button onClick={() => { props.deleteZeneszam(zeneszam) }}>Rekord torlese</button>
                                 </td>
                             )}
                         </tr>
                     ))}
                 </tbody>
-
             </table>
+            {kivalasztottZeneszam !== null && (
+                <Modal zeneszamToModify={kivalasztottZeneszam} modifyZeneszam={props.modifyZeneszam} onClose={onClose} />
+            )}
         </>
     )
 };
