@@ -5,6 +5,7 @@ import { Fejlec } from "./Components/Fejlec/Fejlec";
 import { Lablec } from "./Components/Lablec/Lablec";
 import { Lista } from "./Components/Lista/Lista";
 import { UjForm } from "./Components/UjForm/UjForm";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 
 export const App = function () {
   const [zeneszamok, setZeneszamok] = useState<Zeneszam_type[]>([
@@ -72,13 +73,13 @@ export const App = function () {
   };
 
   return (
-    <>
+    <div className="container">
     <Fejlec changeOldal={changeOldal}></Fejlec>
     {oldal == "admin" && (
       <UjForm setNewZeneszam={setNewZeneszam}/>
     )}
     <Lista deleteZeneszam={deleteZeneszam} modifyZeneszam={modifyZeneszam} zeneszamok={zeneszamok} oldal={oldal} changeZeneszamMagyar={changeZeneszamMagyar}></Lista>
     <Lablec></Lablec>
-    </>
+    </div>
   )
 };
