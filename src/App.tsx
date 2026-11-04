@@ -73,7 +73,7 @@ export const App = function () {
   return (
     <>
     <Fejlec changeOldal={changeOldal}></Fejlec>
-    <Lista zeneszamok={zeneszamok} oldal={oldal}></Lista>
+    <Lista zeneszamok={zeneszamok} oldal={oldal} changeZeneszamMagyar={changeZeneszamMagyar}></Lista>
     <Lablec></Lablec>
     </>
   )
